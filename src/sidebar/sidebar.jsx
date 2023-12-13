@@ -1,4 +1,5 @@
 import {useState} from 'react';
+// import {BrowserRouter as Router} from 'react-router-dom';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -12,9 +13,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 // import Navbar from './navbar'
-import logo from '../../assets/img/logo.jpg'
+import { Outlet } from 'react-router-dom'
+import logo from '../assets/img/logo.jpg'
 import Dropdown from './Dropdown';
-import Base from '../page/Base'
+// import Base from '../page/Base'
 import data from './_nav'
 const drawerWidth = 240;
 
@@ -116,7 +118,9 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         {/* this is dropdown list which is seen on screen */}
+        {/* <Router> */}
           <Dropdown data={data}/>
+        {/* </Router> */}
           {/* this is dropdown list which is seen on screen */}
         <Divider />
       
@@ -124,7 +128,7 @@ export default function PersistentDrawerLeft() {
       <Main open={open}>
         <DrawerHeader />
 {/* this is page which is seen on screen */}
-       <Base />
+       < Outlet/>
 {/* this is page which is seen on screen */}
       </Main>
     </Box>

@@ -80,17 +80,10 @@ const _nav = [
     ],
   },
   {
-    component: "NavGroup",
+    component: "NavItem",
     name: 'Manage Customers',
     to: '/customers',
     icon: <HandshakeIcon /> ,
-    items: [
-      {
-        component: "NavItem",
-        name: 'Manage Tickets',
-        to: '/tickets',
-      },
-    ],
   },
   {
     component: "NavGroup",

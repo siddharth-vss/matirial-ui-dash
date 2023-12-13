@@ -2,17 +2,25 @@
 import { KeyboardArrowDown } from "@mui/icons-material";
 import { Box, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import { useState } from "react";
-// import { useNavigate } from 'react-router-dom'
+import { redirect } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Dropbox = (props) => {
     const [open , setOpen] = useState(false);
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const { data, name ,icon } = props;
+    const navigationfunction = (path) =>{
+         console.log(JSON.stringify(path))
+         redirect(path);
+         navigate(path);
+    }
     // console.log(data.name)
   return (
     <Box
+    
+    key={name}
               sx={{
                 bgcolor: open ? 'rgba(71, 98, 130, 0.2)' : null,
                 pb: open ? 2 : 0,
@@ -61,7 +69,7 @@ const Dropbox = (props) => {
                   <ListItemButton
                     key={item.name}
                     sx={{ py: 0, minHeight: 32,  }}
-                    // onClick={()=>navigate(item.to)}
+                    onClick={()=>navigationfunction(item.to)}
                   >
                     
                     <ListItemText
